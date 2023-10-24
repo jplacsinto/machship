@@ -22,7 +22,7 @@ const GithubForm = () => {
       const response = await fetch(`http://machship.api.test/api/github/user/info?usernames=${inputFields}`); // Replace with your API endpoint
       if (response.ok) {
         const data = await response.json();
-        setApiResponse(data);
+        setApiResponse(JSON.stringify(data));
       } else {
         throw new Error('API request failed');
       }
@@ -66,7 +66,7 @@ const GithubForm = () => {
         Handle All Inputs
       </button>
 
-      <div>{JSON.stringify(apiResponse)}</div>
+      <div>{apiResponse}</div>
     </div>
   );
 };
